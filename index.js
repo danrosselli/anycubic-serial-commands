@@ -23,17 +23,12 @@ const port = new SerialPort('/dev/ttyUSB0', {
 })
 
 let line = '';
-let receiving = true;
-let timer = null;
 
 port.on("open", function(){
   console.log('open');
 
   port.on('data', function(data) {
-    //console.log('data received: ' + data);
-    //console.log(data);
     for (const value of data) {
-      //console.log(value, String.fromCharCode(value));
       // 10 = linebreak
       if (value == 10) {
 
@@ -42,32 +37,15 @@ port.on("open", function(){
         if (line.indexOf("ok") >= 0) {
           rl.question("> ", function(command) {
             port.write(`${command};\n`);
-            //rl.close();
           });
         }
 
         line = '';
-
       }
       else {
         line += String.fromCharCode(value);
       }
     }
-
-    /*
-    if (timer)
-      clearTimeout(timer);
-
-    timer = setTimeout(() => {
-
-      rl.question("> ", function(command) {
-        port.write(`${command};\n`);
-        //rl.close();
-      });
-
-    }, 5000);
-    */
-    //console.log(data.toString());
 
   });
 
@@ -77,11 +55,11 @@ port.on("open", function(){
 
   M105 : get extruder temperature
   M70 P5; Hello World.
-  G28: Move to Origin (Home)
-  M72: Play a tone or song
-  M104: Turn off heater
-  M104 S100: Turn on heater to 100 celsius
-  M140 S60: Set bed temperature
+  G28; Move to Origin (Home)
+  M72; Play a tone or song
+  M104; Turn off heater
+  M104 S100; Turn on heater to 100 celsius
+  M140 S60; Set bed temperature
   G1 E100 F100
 
   M302         ; report current cold extrusion state
