@@ -17,9 +17,9 @@ Plug a USB cable to your printer to send commands and don't forget it to replace
 * Your extruder will feed 100 mm of filament now (takes 60 seconds)
 * Measure where your pencil marking is now. If it's exactly 20 mm to the extruder, it's perfectly calibrated
 * If it's less or more than 20 mm, subtract that value from 120 mm, e.g.:
-* If you measure 25 mm, your result would be 95 mm. If you measure 15 mm, your result would be 105 mm
-* Calculate your new value: (100 mm / actually extruded filament) * your current E-steps (default: i3 Mega 92.6, Mega-S 384)
-* For example, if your markings are at 15 mm, you'd calculate: (100/105) * 92.6 = 88.19
+* If you measure 26 mm, your result would be 94 mm. If you measure 15 mm, your result would be 105 mm
+* Calculate your new value: (100 mm / actually extruded filament) * your current E-steps (default: i3 Mega = 92.6, Mega-S = 384)
+* For example, if your markings are at 26 mm, you'd calculate: (100/94) * 384 = 408.51 (new value for Mega-S)
 * Put in the new value like this: M92 Exxx.xx, replacing x with your value
 * Save with M500
 * Finish with M82
