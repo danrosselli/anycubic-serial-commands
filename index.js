@@ -72,6 +72,9 @@ port.on("open", function(){
 
   M300 S440 P200 ; play a tone
 
+  M82;
+  M83;
+  
   M503; return informations about the step configurations
 
   echo: Steps per unit:
