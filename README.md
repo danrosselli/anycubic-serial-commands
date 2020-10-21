@@ -20,6 +20,7 @@ Plug a USB cable to your printer to send commands and don't forget it to replace
 * If you measure 26 mm, your result would be 94 mm. If you measure 15 mm, your result would be 105 mm
 * Calculate your new value: (100 mm / actually extruded filament) * your current E-steps (default: i3 Mega = 92.6, Mega-S = 384)
 * For example, if your markings are at 26 mm, you'd calculate: (100/94) * 384 = 408.51 (new value for Mega-S)
+* For example, if your markings are at 26 mm, you'd calculate: (100/94) * 92.6 = 98.51 (new value for i3 Mega)
 * Put in the new value like this: M92 Exxx.xx, replacing x with your value
 * Save with M500
 * Finish with M82
