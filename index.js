@@ -1,5 +1,6 @@
 const SerialPort = require('serialport')
 const readline = require("readline");
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -53,14 +54,14 @@ port.on("open", function(){
   /*
   https://marlinfw.org
 
-  M105 : get extruder temperature
   M70 P5; Hello World.
-  G28; Move to Origin (Home)
-  M72; Play a tone or song
-  M104; Turn off heater
+  M104 S0; Turn off heater
   M104 S100; Turn on heater to 100 celsius
+  M105; get extruder temperature
   M140 S60; Set bed temperature
-  G1 E100 F100
+
+  G1 E100 F100; extrude 100mm of filament
+  G28; Move to Origin (Home)
 
   M302         ; report current cold extrusion state
   M302 P0      ; enable cold extrusion checking
@@ -73,8 +74,12 @@ port.on("open", function(){
 
   M503; return informations about the step configurations
 
-  echo:Steps per unit:
-  echo:  M92 X80.00 Y80.00 Z400.00 E384.00
+  echo: Steps per unit:
+  echo: M92 X80.00 Y80.00 Z400.00 E384.00 (original value of my printer)
+
+  M92 E408.51; set the steps per unit (altered value)
+
+  M500; save the current configuration to EEPROM (BE CAREFUL!!)
 
   */
 
